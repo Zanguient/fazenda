@@ -75,3 +75,50 @@ CREATE TABLE `recomendacao` (
 
 
 
+
+select * from consultor
+insert into consultor (Nome) values ('Joldemar Moreira');
+insert into consultor (Nome) values ('Mario Gomes da Silva');
+insert into consultor (Nome) values ('Ivo Dante de Oliveira');
+
+
+SELECT * FROM GRUPO
+insert into grupo (Descricao) values ('Mario Guilherme Ferreira');
+insert into grupo (Descricao) values ('Brasil-Agricola');
+
+
+SELECT * FROM USUARIO
+insert into usuario (Login, Senha, Nome, EMail, TipoAcesso, Ativo ) values ('Joldemar','123','Joldemar.Moreira','joldemar@faz.com.br', 1, 'S');
+insert into usuario (Login, Senha, Nome, EMail, TipoAcesso, Ativo ) values ('Joaquim','321','Joaquim.Silva','joaquim@faz.com.br', 2, 'S');
+insert into usuario (Login, Senha, Nome, EMail, TipoAcesso, Ativo ) values ('Felipe','231','Felipe.Ramos','felipe@faz.com.br', 2, 'S');
+
+
+
+SELECT * FROM FAZENDA
+insert into fazenda (Nome) values ('Dona Maria');
+insert into fazenda (Nome) values ('Boa Esperança');
+insert into fazenda (Nome) values ('Rio Negro');
+
+
+SELECT * FROM ELEMENTO
+insert into ELEMENTO (Descricao) values ('Adubação Pré-Plantio CFR');
+insert into ELEMENTO (Descricao) values ('Calagem');
+insert into ELEMENTO (Descricao) values ('Cálcio (CA) 00-20');
+insert into ELEMENTO (Descricao) values ('Enxofre');
+
+
+SELECT * FROM PRODUTOR
+insert into PRODUTOR (Nome) values ('Mário Gomes da Silva');
+insert into PRODUTOR (Nome) values ('Flávio Pereira Vargas');
+insert into PRODUTOR (Nome) values ('Viviane Costa');
+
+
+
+SELECT * FROM PROJETO
+insert into PROJETO (Descricao, FazendaId, ProdutorId, GrupoId, ConsultorId ) values ('ABCDE-2012/2013-1 - Correção de Solo', 1, 1, 1, 1);
+insert into PROJETO (Descricao, FazendaId, ProdutorId, GrupoId, ConsultorId ) values ('ABCDE-2013/2014-1 - Correção de Solo', 1, 1, 1, 1);
+insert into PROJETO (Descricao, FazendaId, ProdutorId, GrupoId, ConsultorId ) values ('ABCDE-2014/2015-1 - Correção de Solo', 1, 1, 1, 1);
+insert into PROJETO (Descricao, FazendaId, ProdutorId, GrupoId, ConsultorId ) values ('ABCDE-2012/2013-1 - Fertilidade', 1, 1, 1, 1);
+insert into PROJETO (Descricao, FazendaId, ProdutorId, GrupoId, ConsultorId ) values ('ABCDE-2013/2014-1 - Fertilidade', 1, 1, 1, 1);
+insert into PROJETO (Descricao, FazendaId, ProdutorId, GrupoId, ConsultorId ) values ('ABCDE-2014/2015-1 - Nematoide', 1, 1, 1, 1);
+insert into PROJETO (Descricao, FazendaId, ProdutorId, GrupoId, ConsultorId ) values ('ABCDE-2013/2012-1 - Nematoide', 1, 1, 1, 1);
