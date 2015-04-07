@@ -62,16 +62,15 @@
                 </div>
             </div>
             <div class="col-xs-6 alinhaEsquerda">
-
-                <form class="form-signin">
-                    <h2>Acesso</h2>
-                    <input type="text" class="input-block-level" placeholder="Usuário">
-                    <input type="password" class="input-block-level" placeholder="Senha">
+                <form class="form-signin" method="post" action="./controllers/valida.php">
+                    <h2>Login</h2>
+                    <label for="edUser">Usuário</label>
+                    <input type="text" id="edUser" name="edUser" class="form-control input-lg" placeholder="usuário" maxlength="30" required />
+                    <label for="edPassWord">Senha</label>
+                    <input type="password" id="inputPass" name="edPassWord" class="form-control input-lg" placeholder="senha" maxlength="20" required />
                     <button class="btn btn-large btn-primary" type="submit">Entrar</button>
                 </form>
-
             </div>
-
         </div>
     </section>
 
