@@ -1,0 +1,44 @@
+* {
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
+}
+
+body {
+    padding-top: 50px;
+}
+
+section {
+    margin-top: 30px;
+    padding-top: 05px;
+    padding-bottom: 15px;
+    min-height: 80vh;
+}
+
+
+footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: url(../imgs/backGroundFooter.png); 
+}
+
+
+.logo-title {
+    font-weight: 700; 
+    font-size: 1.2em;
+    color: #000
+}  
+
+.logoLeft{
+    float: left;
+    margin: 100px;
+    
+}
+
+.logoLeft>p{
+    font-size: 1.8em;
+    font-weight:600;
+}
+
+
+
+
