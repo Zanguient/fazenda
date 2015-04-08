@@ -7,15 +7,16 @@ $_SG['caseSensitive'] = false;     // Usar case-sensitive? Onde 'thiago' é dife
 $_SG['validaSempre'] = true;       // Deseja validar o usuário e a senha a cada carregamento de página?
 // Evita que, ao mudar os dados do usuário no banco de dado o mesmo contiue logado.
 
-$_SG['servidor'] = 'localhost';    // Servidor MySQL
-$_SG['usuario'] = 'root';          // Usuário MySQL
-$_SG['senha'] = '';                // Senha MySQL
-$_SG['banco'] = 'teste';            // Banco de dados MySQL
+$_SG['servidor'] = 'localHost';      // Servidor MySQL
+$_SG['usuario'] = 'meuUsuario';      // Usuário MySQL
+$_SG['senha'] = 'minhaSenha';        // Senha MySQL
+$_SG['banco'] = 'MeuBancoDados';     // Banco de dados MySQL
 
-$_SG['paginaLogin'] = 'index.html'; // Página de login
+$_SG['paginaLogin'] = '../index.html';              // Página de login
+$_SG['paginaInvalida'] = '../Views/pagina404.php';  // Página de Erro
 
-$_SG['tabela'] = 'usuario';        // Nome da tabela onde os usuários são salvos
-
+$_SG['tabela'] = 'usuario';                         // Nome da tabela onde os usuários são salvos
+$Debug = "...";
 
 // Verifica se precisa fazer a conexão com o MySQL
 if ($_SG['conectaServidor'] == true) 
@@ -46,8 +47,11 @@ function validaUsuario($usuario, $senha)
   $nusuario = addslashes($usuario);
   $nsenha = addslashes($senha);
 
+  $GLOBALS['Debug']  = "Usuario: ".$usuario;
+    
   // Monta uma consulta SQL (query) para procurar um usuário
-  $sql = "SELECT UsuarioId, Login FROM ".$_SG['tabela']." WHERE ".$cS." Login = ".$nusuario." AND ".$cS." senha = ".$nsenha." LIMIT 1";
+  $sql = "SELECT UsuarioId, Login FROM ".$_SG['tabela']." WHERE ".$cS." Login = '".$nusuario."' AND ".$cS." senha = '".$nsenha."' LIMIT 1";
+
   $query = mysql_query($sql);
   $resultado = mysql_fetch_assoc($query);
 
@@ -60,8 +64,8 @@ function validaUsuario($usuario, $senha)
   else 
   {
     // Definimos dois valores na sessão com os dados do usuário
-    $_SESSION['usuarioID'] = $resultado['id']; // Pega o valor da coluna 'id do registro encontrado no MySQL
-    $_SESSION['usuarioNome'] = $resultado['nome']; // Pega o valor da coluna 'nome' do registro encontrado no MySQL
+    $_SESSION['usuarioID'] = $resultado['UsuarioId']; // Pega o valor da coluna 'id do registro encontrado no MySQL
+    $_SESSION['usuarioNome'] = $resultado['Login']; // Pega o valor da coluna 'nome' do registro encontrado no MySQL
 
     // Verifica a opção se sempre validar o login
     if ($_SG['validaSempre'] == true) 
@@ -114,5 +118,5 @@ function expulsaVisitante()
   unset($_SESSION['usuarioID'], $_SESSION['usuarioNome'], $_SESSION['usuarioLogin'], $_SESSION['usuarioSenha']);
 
   // Manda pra tela de login
-  header("Location: ".$_SG['paginaLogin']);
+  header("Location: ".$_SG['paginaInvalida']);
 }

@@ -1,17 +1,15 @@
 <?php
 require_once("seguranca.php");
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
-  $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
-  $senha = (isset($_POST['senha'])) ? $_POST['senha'] : '';
-
+  $usuario = (isset($_POST['edUser'])) ? $_POST['edUser'] : '';
+  $senha = (isset($_POST['edPassWord'])) ? $_POST['edPassWord'] : '';
 
   if (validaUsuario($usuario, $senha) == true) 
   {
     // O usuário e a senha digitados foram validados, manda pra página interna
-    header("Location: index.php");
+    header("Location: ../views/projeto.php");
   } 
   else 
   {
@@ -19,4 +17,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     // Para alterar o endereço da página de login, verifique o arquivo seguranca.php
     expulsaVisitante();
   }
+    
 }
