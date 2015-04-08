@@ -1,3 +1,9 @@
+<?php 
+  include("/lib/template/raintpl/rain.tpl.class.php");
+  raintpl::$tpl_dir   = "../Views/";  
+  raintpl::$cache_dir = "../Views/tmp/";  // cache directory
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
